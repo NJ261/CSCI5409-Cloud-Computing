@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Body Mass Index (BMI) Calculator</title>
+      <script type="text/javascript">
+
+      function calculate_BMI(){
+          var height=Number(document.getElementById("height").value);
+          var weight=Number(document.getElementById("weight").value);
+
+                  //Perform calculation
+        var BMI=weight/Math.pow(height, 2);
+
+        //Display result of calculation
+        document.getElementById("output").innerText=Math.round(BMI*100)/100;
+
+        var output =  Math.round(BMI*100)/100
+
+        // for displaying type based on calculated BMI
+        if (output<18.5)
+          document.getElementById("type").innerText = " (Underweight)";
+        else   if (output>=18.5 && output<=25)
+          document.getElementById("type").innerText = " (Normal)";
+        else   if (output>=25 && output<=30)
+          document.getElementById("type").innerText = " (Overweight)";
+        else   if (output>30)
+          document.getElementById("type").innerText = " (Obese)";
+      }
+      </script>
+   </head>
+
+   <body>
+      <header role = "banner">
+         <h1>Body Mass Index (BMI) Calculator</h1>
+
+      </header>
+
+     <p>Enter Weight (In kg) : <input type = "number" id = "weight" step=any required/> </p>
+     <p>Enter Height (In Meters) : <input type = "number" id = "height" step=any required/></p>
+
+     <input type = "submit" value = "Calculate" onclick="calculate_BMI();" >
+
+     <h3>Your BMI is: <span id="output">__</span> kg/m<sup>2</sup><span id="type"> (__)</span></h3>
+     <p></p>
+
+      <footer>
+         <p>Created by Mr. Niravsinh Jadeja | B00789139 | nirav.jadeja@dal.ca</p>
+      </footer>
+
+   <!-- References -->
+   <!-- 1. https://www.tutorialspoint.com/html5/html5_quick_guide.htm -->
+   <!-- 2. https://stackoverflow.com/questions/21698044/basic-bmi-calculator-html-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa -->
+   <!-- 3. https://www.isotoma.com/blog/2012/03/02/html5-input-typenumber-and-decimalsfloats-in-chrome/ -->
+   <!-- 4. http://www.tutorialspoint.com/javascript/javascript_quick_guide.htm -->
+
+   </body>
+</html>
