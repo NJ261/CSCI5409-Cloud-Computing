@@ -22,29 +22,30 @@ if (isset($_POST["submit"])) {
         $name = explode(".", $name);
 
         // file extension check, allowed are jpeg, jpg, png, bmp
-        if (!in_array($filetype,$fileExtensions)) {
+        if (!in_array($filetype,$fileExtensions)){
               echo "<script>alert('Invalid image format, Allowed formats are jpg, png, bmp. please try again.');
               location.href='upload.php';</script>";
         }
-
-        // size check, limit is 3MB
-        if ($_FILES['files']['size'] > 3000000){
-              echo "<script>alert('Opps large file size, size limit is 3MB. please try again.');
-              location.href='upload.php';</script>";
-        }
-
         else{
-              try {
-                  // uploading to the cloud
-                  \Cloudinary\Uploader::upload($filename, array("public_id" => $name[0]));
-                  echo "<div style='color:blue; font-weight: bolder;'>Uploading Done!!</div>";}
+          // size check, limit is 3MB
+          if ($size > 3000000){
+                echo "<script>alert('Opps large file size, size limit is 3MB. please try again.');
+                location.href='upload.php';</script>";
+          }
 
-              catch ( Exception $e) {
-                  echo "<div style='color:blue; font-weight: bolder;'>Something went wrong, Please try again!</div>";}
+          else{
+                try {
+                    // uploading to the cloud
+                    \Cloudinary\Uploader::upload($filename, array("public_id" => $name[0]));
+                    echo "<div style='color:blue; font-weight: bolder;'>Uploading Done!!</div>";}
+
+                catch ( Exception $e) {
+                    echo "<div style='color:blue; font-weight: bolder;'>Something went wrong, Please try again!</div>";}
+          }
         }
     }
     else {
-        echo "<script>alert('Empty or invalid file. Please try again with image file.');
+        echo "<script>alert('Empty or invalid file or wrong file size (Max Size is 3MB). Please try again with image file.');
         location.href='upload.php';</script>";}
 }
 ?>
@@ -69,7 +70,7 @@ if (isset($_POST["submit"])) {
 <div style="margin-top: 30px;">
 <div id="select_photo">Select your photo :</div>
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="files">
+        <input type="file" name="files" id="files">
         <p></p>
         <input type="submit" name="submit" value="Upload your photo">
     </form>
