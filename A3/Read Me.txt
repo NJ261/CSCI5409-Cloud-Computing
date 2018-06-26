@@ -1,0 +1,19 @@
+For Client App Set up:
+1. log in into your bluenose Dal server
+2. put all files in "Client App" folder in your public html folder
+3. try it with your appropriate structure URl such as jadeja>A3>files 
+then URL: web.cs.dal.ca/~jadeja/a3/create.php
+
+
+for web service set up:
+1. make account on heroku
+2. install heroku CLI (steps provided in report document Page No. 2)
+3. go in your project directory and open CMD or terminal
+4. log in your heroku account by "heroku auth:login" and provide ID and password
+5. type "heroku create yourappname" for creating web app on heroku
+6. in settings.py file from a3 folder make changes in allowed hosts by 'yourappname.herokuapp.com'
+7. git init (if required)
+8. git add .
+9. git commit -m "host settings changed"
+10. now type git push heroku master (this will take some time intially)
+11. once it shows success message, deployment done then type heroku open (which will open your web service).
