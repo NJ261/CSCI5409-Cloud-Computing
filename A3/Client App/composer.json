@@ -1,0 +1,23 @@
+{
+    "name": "assignment3/cloudinary_php",
+    "version": "1.10.0",
+    "description": "Cloudinary PHP SDK",
+    "keywords": ["cloudinary", "sdk", "cloud", "image management", "cdn"],
+    "type": "library",
+    "homepage": "https://github.com/cloudinary/cloudinary_php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nirav Jadeja",
+            "email": "nirav.jadeja@dal.ca"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.8",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "cloudinary/cloudinary_php": "dev-master",
+        "phpunit/phpunit": "7.1.5",
+		"curl/curl": "^1.5"
+    }
+}
